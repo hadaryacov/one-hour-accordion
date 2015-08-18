@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<style>
+		html {
+		  box-sizing: border-box;
+		}
+		*, *:before, *:after {
+		  box-sizing: inherit;
+		}
+		.accordion-wrapper{
+			width:400px;
+			display:block;
+			border:1px solid #ccc;
+		}
+		.accordion-tab{
+			display:block;
+			/*border:1px solid #ccc;*/
+		}
+		.accordion-tab h1{
+			display:block;
+			background-color: #eee;
+			padding:10px;
+			width:100%;
+			color:#333;
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-weight:normal;
+			font-size:13px;
+			margin:0;
+			border-bottom:1px solid #ccc;
+			cursor:pointer;
+		}
+		.accordion-tab .content{
+			height:0px;
+			padding:15px;
+			display:none;
+			overflow:hidden;
+			transition:all 0.3s;
+		}
+
+		.accordion-tab.open h1{
+			color:blue;
+		}
+		.accordion-tab.open .content{
+			display:block;
+			height:auto;
+			padding:15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="accordion-wrapper">
+		<div class="accordion-tab">
+			<h1>accordion tab 1</h1>
+			<div class="content">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 2</h1>
+			<div class="content">
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 3</h1>
+			<div class="content">
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 4</h1>
+			<div class="content">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 5</h1>
+			<div class="content">
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 6</h1>
+			<div class="content">
+				last tab
+			</div>
+		</div>
+	</div>
+	<script>
+		$('.accordion-wrapper .accordion-tab h1').click(function(){
+			var $allTabs = $('.accordion-tab');
+			var $currentTab = $(this).closest('div.accordion-tab');
+
+			$allTabs.removeClass('open');
+			$currentTab.addClass('open');
+		});
+	</script>
+</body>
+</html>

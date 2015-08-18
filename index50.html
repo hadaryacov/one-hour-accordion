@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<style>
+		html {
+		  box-sizing: border-box;
+		  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		  font-weight:lighter;
+		  background-color:#2A1C42;
+		}
+		*, *:before, *:after {
+		  box-sizing: inherit;
+		}
+		.accordion-wrapper{
+			max-width:500px;
+			width:100%;
+			margin:30px auto;
+			box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+		}
+		
+		.accordion-tab h1{
+			display:block;
+			padding:10px;
+			width:100%;
+			font-weight: 200;
+			font-size:13px;
+			margin:0;
+			cursor:pointer;
+			text-transform:uppercase;
+			background-color:#46cdcf;
+			color:rgba(255,255,255,0.8);
+			border-bottom:1px solid rgba(255,255,255,0.2);
+			transition:all 0.3s;
+		}
+		.accordion-tab h1:hover{
+			padding-left:30px;
+		}
+		.accordion-tab h1 .arrow{
+			float: right;
+			transition: all 0.3s;
+			width: 0;
+			height: 0;
+			
+			border-left: 25px solid transparent;
+			border-right: 25px solid transparent;
+			border-top: 36px solid rgba(255,255,255,0.3);
+
+			margin-right: -10px;
+			margin-top: -10px;
+			transition:all 0.3s;
+		}
+		.accordion-tab .content{
+			height:0px;
+			padding:0px 15px 0px 15px;
+			overflow:hidden;
+			transition:all 0.3s;
+			background-color:white;
+		}
+
+		.accordion-tab.open h1{
+			color:white;
+			background-color:#053E5A;
+			border-bottom:10px solid #46cdcf;
+			padding-left:30px;
+		}
+		.accordion-tab.open .content{
+			display:block;
+			height:200px;
+			padding:15px;
+			border-top:6px solid #abedd8;
+		}
+		.accordion-tab.open h1 .arrow{
+			transform:rotate(180deg);	
+		}
+	</style>
+</head>
+<body>
+	<div class="accordion-wrapper">
+		<div class="accordion-tab">
+			<h1>accordion tab 1 <!-- <i class="fa fa-angle-down"></i> --><span class="arrow"></span></h1>
+			<div class="content">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 2 <!-- <i class="fa fa-angle-down"></i> --><span class="arrow"></span></h1>
+			<div class="content">
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 3 <!-- <i class="fa fa-angle-down"></i> --><span class="arrow"></span></h1>
+			<div class="content">
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 4 <!-- <i class="fa fa-angle-down"></i> --><span class="arrow"></span></h1>
+			<div class="content">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 5 <!-- <i class="fa fa-angle-down"></i> --><span class="arrow"></span></h1>
+			<div class="content">
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+		<div class="accordion-tab">
+			<h1>accordion tab 6 <!-- <i class="fa fa-angle-down"></i> --><span class="arrow"></span></h1>
+			<div class="content">
+				last tab
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$('.accordion-tab').first().addClass('open');
+		});
+
+		$('.accordion-wrapper .accordion-tab h1').click(function(){
+			//if open - close it
+			var $allTabs = $('.accordion-tab');
+			var $currentTab = $(this).closest('div.accordion-tab');
+
+			if($currentTab.hasClass('open')){
+				$currentTab.removeClass('open');
+			}else{
+				$allTabs.removeClass('open');
+				$currentTab.addClass('open');
+			}
+		});
+	</script>
+</body>
+</html>
